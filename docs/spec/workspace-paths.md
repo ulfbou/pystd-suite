@@ -3,7 +3,7 @@
 Status: Normative
 Owner: Workspace-relative path and filesystem-boundary semantics
 Scope: Mapping validated carrier paths to explicit workspace roots, filesystem observation, containment, entry types, links, collisions, and workspace applicability
-Maturity: Draft
+Maturity: Accepted
 
 ## Purpose
 
@@ -96,7 +96,7 @@ Packing discovery and explicit-source handling MUST identify symlinks without fo
 
 Directory traversal MUST NOT follow symlinked files or directories.
 
-A source symlink resolving outside the source workspace is rejected before target access. The exact selection or operation diagnostic for an unsupported explicitly requested source belongs to later specifications.
+A source symlink resolving outside the source workspace is rejected before target access. The selection outcome belongs to `docs/spec/selection.md`; operation aggregation belongs to `docs/spec/operations.md`; diagnostic interpretation belongs to `docs/spec/diagnostics.md`.
 
 ## Destination links
 
@@ -106,9 +106,9 @@ Any ancestor symlink is an applicability conflict, including an ancestor resolvi
 
 A target that resolves outside the workspace root is inapplicable and MUST NOT be read or mutated.
 
-Comparison MUST NOT follow final or ancestor symlinks. The later comparison specification owns the precise observable difference or unsupported result.
+Comparison MUST NOT follow final or ancestor symlinks. `docs/spec/operations.md` owns the precise comparison result.
 
-A final carrier-output destination symlink is rejected. Detailed carrier-output planning and conflict behavior belongs to later operation specifications.
+A final carrier-output destination symlink is rejected. Detailed carrier-output planning and conflict behavior belongs to `docs/spec/operations.md`.
 
 ## Supported entry types
 
@@ -157,7 +157,7 @@ Before each affected mutation, application MUST revalidate relevant precondition
 
 A changed precondition produces a conflict or environmental failure. Application MUST NOT silently reinterpret or extend the accepted plan.
 
-Whole-operation atomicity, ordering, rollback, and partial-failure semantics belong to the future operation specification.
+Whole-operation atomicity, ordering, rollback, and partial-failure semantics belong to `docs/spec/operations.md`.
 
 ## Read-only entries
 
@@ -165,7 +165,7 @@ A logical path declared read-only remains subject to every validation, mapping, 
 
 Application does not write the represented payload to a read-only target.
 
-Whether a missing or differing read-only target blocks operation success, produces a verification difference, or remains an allowed reference discrepancy belongs to later operation semantics.
+Whether a missing or differing read-only target blocks operation success, produces a verification difference, or remains an allowed reference discrepancy belongs to `docs/spec/operations.md`.
 
 ## Validation
 
@@ -218,7 +218,7 @@ Workspace path processing MUST NOT:
 
 ## Compatibility
 
-No historical workspace-path compatibility classification is established by this Draft specification.
+No historical workspace-path compatibility classification is established by this specification. Historical relationships remain unspecified and do not alter the accepted mapping and safety contract.
 
 Observed implementation behavior is evidence only. This specification deliberately rejects following comparison symlinks, allowing in-workspace ancestor symlinks during application, blocking on special objects, and treating a directory target as previewable regular-file output.
 
@@ -253,9 +253,9 @@ Conformance evidence MUST cover at least:
 
 Every supported-environment claim requires platform and filesystem evidence. Tests that intentionally use special objects or links must be bounded and must not follow or read those objects during fixture inspection.
 
-## Open decisions
+## Bounded unspecified and future work
 
-The following remain outside this Draft specification's accepted boundary:
+The following remain outside this specification's accepted boundary and do not prevent conformance within the verified boundary:
 
 - support for Windows, macOS, network filesystems, and additional Python versions;
 - exact permission behavior beyond environmental-failure classification;
@@ -265,8 +265,12 @@ The following remain outside this Draft specification's accepted boundary:
 
 These decisions do not alter the mapping and safety rules stated above for the currently verified boundary.
 
+## Maturity transition
+
+This specification is Accepted because mapping, containment, no-follow observation, entry types, collisions, permission categories, revalidation, and the verified-environment boundary completely determine conformance within scope. Additional platform support requires evidence but is not an unresolved semantic question for the accepted boundary.
+
 ## Authority boundary
 
 This document owns workspace mapping, filesystem observation, containment, entry-type, link, collision, permission-category, and changed-precondition semantics.
 
-`docs/spec/dx-carrier.md` owns logical carrier-path syntax and carrier validity. Future selection specifications own source candidate and inclusion behavior. Future operation specifications own planning, mutation, comparison result categories, read-only success semantics, overwrite behavior, and partial failure. Architecture continues to own dependency and capability boundaries.
+`docs/spec/dx-carrier.md` owns logical carrier-path syntax and carrier validity. `docs/spec/selection.md` owns source candidate and inclusion behavior. `docs/spec/operations.md` owns planning, mutation, comparison result categories, read-only success semantics, overwrite behavior, and partial failure. Architecture continues to own dependency and capability boundaries.

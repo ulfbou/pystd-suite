@@ -409,7 +409,7 @@ Existing behavior is informative evidence only. The accepted semantics deliberat
 - hidden output self-exclusion;
 - binary or unreadable outcomes treated as path selection.
 
-This section records differences for clarity and does not create compatibility authority or promote any neighboring Draft specification.
+This section records differences for clarity and does not create compatibility authority.
 
 ## Applicable schemas
 None. This specification has no schema-governed boundary.
@@ -504,8 +504,8 @@ Verification MUST also demonstrate independence from candidate enumeration order
 ## Authority boundary
 This document is the Accepted authority for DX workspace-to-carrier packing selection semantics. It owns candidate-universe construction, scope, positive selection, exclusions, explicit ignore and optional Git facts, override authority, deterministic selected-set construction, and per-candidate decisions.
 
-`docs/spec/dx-carrier.md` remains Draft and owns carrier representation and logical carrier-path validity within its declared boundary. This specification uses logical path text as supplied selection identity without promoting that Draft document.
+`docs/spec/dx-carrier.md` is Accepted and owns carrier representation and logical carrier-path validity within its declared boundary. This specification uses logical path text as supplied selection identity without redefining carrier semantics.
 
-`docs/spec/workspace-paths.md` remains Draft and owns physical workspace mapping and applicability within its declared boundary. This specification does not decide physical applicability and does not promote that Draft document.
+`docs/spec/workspace-paths.md` is Accepted and owns physical workspace mapping and applicability within its declared boundary. This specification does not decide physical applicability.
 
 Discovery supplies explicit candidate facts but remains outside selection. Content loading follows selection. Carrier creation is plan-mediated, and carrier-output mutation and safety remain outside selection. Optional Git capabilities remain external. Architecture continues to own dependencies, capabilities, and internal plan boundaries. Future operation, diagnostic, CLI/process, and compatibility specifications own their respective concerns.

@@ -2,7 +2,7 @@
 Status: Normative
 Owner: DX semantic diagnostics, explanations, and human/machine diagnostic agreement
 Scope: Diagnostic interpretation of retained semantic results and findings, automation-relevant finding identifiers, required diagnostic context, warnings, suggestions, causal context, ordering, stability, and human/machine agreement
-Maturity: Draft
+Maturity: Accepted
 
 ## Purpose
 This specification defines how DX explains already-determined semantic results and retained findings to human and machine consumers. It establishes diagnostic kinds, stable automation-relevant identifiers, required context, human and machine agreement, warning and suggestion boundaries, partial-failure reconstruction, ordering, and stability.
@@ -331,7 +331,7 @@ Compatibility-sensitive diagnostic properties are semantic result category, stab
 
 Prose, prefixes, punctuation, capitalization, layout, colors, wrapping, suggestion wording, and optional explanation depth are replaceable unless another authority accepts them.
 
-No final historical diagnostic compatibility classification is established by this Draft specification. Informative migration directions are:
+No historical diagnostic compatibility classification is established by this specification. The following are informative migration observations only and do not alter current diagnostic semantics:
 - replace exception-class-name machine errors with semantic identifiers;
 - leave human error prefixes to presentation;
 - defer usage repetition to CLI/process authority;
@@ -405,35 +405,28 @@ Normal underlying invalidity, conflict, unsupported behavior, environmental fail
 
 This specification assigns no numeric process values.
 
-## Draft dependencies
-### Operations dependency
+## Accepted dependencies
+### Selection
+DEPENDENCY: `docs/spec/selection.md`
+STATUS: Accepted
+REQUIRED RULES: Selection outcomes and retained decision facts.
+
+### Operations
 DEPENDENCY: `docs/spec/operations.md`
-
-CURRENT STATUS: Draft
-
+STATUS: Accepted
 REQUIRED RULES: Semantic result categories, operation findings, output-sink distinctions, comparison relations, application effects, changed-precondition facts, and partial-failure state.
 
-BLOCKS DIAGNOSTICS ACCEPTANCE: YES
-
-### Carrier dependency
+### Carrier format
 DEPENDENCY: `docs/spec/dx-carrier.md`
+STATUS: Accepted
+REQUIRED RULES: Structural-invalidity distinctions and carrier locations retained by parsing and structural verification.
 
-CURRENT STATUS: Draft
-
-REQUIRED RULES: Structural-invalidity distinctions and carrier locations exposed by parsing and structural verification.
-
-BLOCKS DIAGNOSTICS ACCEPTANCE: YES
-
-### Workspace-path dependency
+### Workspace paths
 DEPENDENCY: `docs/spec/workspace-paths.md`
-
-CURRENT STATUS: Draft
-
+STATUS: Accepted
 REQUIRED RULES: Mapping, containment, symlink, entry-type, collision, and workspace-applicability findings.
 
-BLOCKS DIAGNOSTICS ACCEPTANCE: YES
-
-This specification does not promote or resolve unrelated questions in those Draft authorities.
+Concrete machine structure is a separate schema concern. Historical compatibility classification is not required to determine diagnostic-semantic conformance.
 
 ## Required verification
 Conformance evidence MUST cover:
@@ -531,11 +524,14 @@ Conformance evidence MUST cover:
 
 No new ADR is required. Existing architecture already establishes typed results and findings, presentation independence, provenance, and execution/explanation agreement.
 
+## Maturity transition
+This specification is Accepted because its taxonomy, identifiers, required context, ordering, stability, reconstruction, and human/machine agreement rules completely determine diagnostic-semantic conformance. Concrete machine structure and historical migration classification are separate concerns and are not blockers.
+
 ## Authority boundary
 This document owns diagnostic interpretation of retained semantic results and findings, automation-relevant symbolic identifiers, required context, warning and suggestion boundaries, cause chains, ordering, stability, and human/machine agreement.
 
 `docs/spec/selection.md` owns selection outcomes and retained selection facts. `docs/spec/operations.md` owns operation results, effects, findings, output-sink semantics, and partial-failure state. This document consumes but does not redefine them.
 
-`docs/spec/dx-carrier.md` owns carrier validity distinctions. `docs/spec/workspace-paths.md` owns workspace mapping and applicability distinctions. Both remain Draft.
+`docs/spec/dx-carrier.md` owns carrier validity distinctions. `docs/spec/workspace-paths.md` owns workspace mapping and applicability distinctions. Both are Accepted.
 
-Future CLI/process authority owns invocation, streams, terminal behavior, concrete machine representation, and process results. Compatibility authority owns accepted historical migration commitments. Architecture continues to own dependency and presentation boundaries.
+`docs/spec/cli-process.md` owns invocation, streams, terminal behavior, and process results. A separately admitted schema owns concrete machine representation. Historical migration commitments remain unspecified until admitted by a compatibility authority. Architecture continues to own dependency and presentation boundaries.

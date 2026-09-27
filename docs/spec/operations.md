@@ -2,7 +2,7 @@
 Status: Normative
 Owner: DX carrier creation, inspection, structural verification, comparison, and workspace application semantics
 Scope: Content loading after selection, carrier-creation planning and execution, carrier serialization and output delivery, inspection, structural verification as an operation, comparison, workspace-application planning and execution, conflict behavior, read-only treatment, changed preconditions, no-op behavior, and partial failure
-Maturity: Draft
+Maturity: Accepted
 
 ## Purpose
 This specification defines the observable semantics of DX carrier creation, inspection, structural verification, workspace comparison, workspace-application planning, and explicit application. It begins after packing selection has produced retained decisions and selected logical paths.
@@ -457,7 +457,7 @@ Execution accepts only validated operation-specific planned intent and the match
 Low-level parser, filesystem, sink, and write failures are translated into semantic results without exposing implementation-specific exception types as the product contract.
 
 ## Compatibility observations
-No final historical operation compatibility classification is established by this Draft specification. Existing behavior is informative evidence only.
+No historical operation compatibility classification is established by this specification. Existing behavior is informative evidence only; historical retention and migration remain unspecified and do not alter current operation semantics.
 
 This semantic model deliberately replaces observed behavior based on default existing-file skip, omission or failure merely from binary classification, rewriting already satisfied targets, unconditional silent read-only skip, unsafe symlink following, hidden output exclusion, structural verification described as integrity, preview and execution recomputing intent independently, or partial writes without complete retained evidence.
 
@@ -466,28 +466,23 @@ Invocation naming, aliases, process migration, and accepted historical classific
 ## Applicable schemas
 None. This specification has no schema-governed boundary.
 
-## Draft dependencies
-### Carrier-format dependency
+## Accepted dependencies
+### Selection
+DEPENDENCY: `docs/spec/selection.md`
+STATUS: Accepted
+CONSUMED RULES: Candidate-source composition, selected-set semantics, retained decisions, and empty-selection reasons.
+
+### Carrier format
 DEPENDENCY: `docs/spec/dx-carrier.md`
+STATUS: Accepted
+CONSUMED RULES: Parsing, payload preservation, logical carrier paths, read-only declarations, serialization, and structural verification.
 
-CURRENT STATUS: Draft
-
-REQUIRED RULES: Parsing, payload preservation, logical carrier paths, read-only declarations, carrier serialization, and structural verification.
-
-BLOCKS OPERATIONS ACCEPTANCE: YES
-
-This specification does not promote that Draft or resolve its unrelated open questions.
-
-### Workspace-path dependency
+### Workspace paths
 DEPENDENCY: `docs/spec/workspace-paths.md`
+STATUS: Accepted
+CONSUMED RULES: Mapping, containment, no-follow observation, entry types, collisions, parent safety, filesystem semantics, and changed-precondition categories.
 
-CURRENT STATUS: Draft
-
-REQUIRED RULES: Workspace mapping, containment, no-follow observation, entry types, collisions, parent safety, applicable filesystem semantics, and changed-precondition categories.
-
-BLOCKS OPERATIONS ACCEPTANCE: YES
-
-This specification does not promote that Draft or resolve its unrelated open questions.
+These dependencies are consumed by reference and are not redefined here. Historical compatibility classification is not required to determine conformance to current operation semantics.
 
 ## Required verification
 Conformance evidence MUST cover at least:
@@ -536,13 +531,16 @@ Conformance evidence MUST cover at least:
 
 Verification MUST also demonstrate that read and planning operations perform no product mutation, mutation consumes planned intent, selection is not re-evaluated, output sink does not influence selected membership, presentation does not alter semantics, and explanation uses the same retained facts as execution.
 
+## Maturity transition
+This specification is Accepted because it completely defines observable creation, inspection, verification, comparison, planning, application, deterministic ordering, changed-precondition, no-op, and partial-failure semantics within its declared boundary. Schemas, presentation, process mapping, implementation structure, and historical compatibility classification are separate concerns and are not conformance blockers.
+
 ## Authority boundary
 This document owns observable operation semantics for content loading after selection, carrier creation and delivery, inspection, structural verification, comparison, workspace-application planning, and explicit application.
 
 `docs/spec/selection.md` owns candidate-universe and selected-set semantics. This specification consumes retained selection decisions and does not redefine them.
 
-`docs/spec/dx-carrier.md` owns carrier representation, encoding, logical carrier-path validity, and format-level structural rules. It remains Draft.
+`docs/spec/dx-carrier.md` is Accepted and owns carrier representation, encoding, logical carrier-path validity, and format-level structural rules.
 
-`docs/spec/workspace-paths.md` owns physical workspace mapping, containment, entry-type, link, collision, permission-category, and applicability rules. It remains Draft.
+`docs/spec/workspace-paths.md` is Accepted and owns physical workspace mapping, containment, entry-type, link, collision, permission-category, and applicability rules.
 
 Architecture owns responsibility boundaries, operation-specific internal plans, dependency direction, and separate mutation capabilities. Future diagnostic, CLI/process, and compatibility specifications own their respective public contracts.

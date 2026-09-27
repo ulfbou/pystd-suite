@@ -2,7 +2,7 @@
 Status: Normative
 Owner: DX public invocation, standard streams, terminal behavior, machine-mode selection, and numeric process results
 Scope: Canonical executable and commands, request grammar, process input and output channels, carrier-output sink selection, help and version behavior, machine mode, verbosity, environmental resolution, terminal safety, interruption, and numeric process outcomes
-Maturity: Draft
+Maturity: Accepted
 
 ## Purpose
 This specification defines the public process boundary for DX. It maps accepted semantic operations, results, diagnostics, primary product data, and retained findings to command invocation, standard streams, terminal behavior, machine-mode selection, and numeric process results.
@@ -55,7 +55,7 @@ The canonical public invocation name is:
 dx
 ```
 
-`dx.py` is provisional historical identity only and is not a normative executable name in this specification. Any obligation to retain, migrate, or remove that name belongs to future compatibility authority.
+`dx.py` is provisional historical identity only and is not a normative executable name in this specification. Any obligation to retain, migrate, or remove that name is outside this current process contract and remains unspecified until separately classified.
 
 The executable name does not constrain package name, module layout, implementation language details, or repository structure.
 
@@ -348,7 +348,7 @@ The following rules govern the mapping:
 6. Values outside this mapping are not public DX result values.
 7. Environment-imposed signal termination is not claimed as a portable DX-controlled numeric result unless DX handles it and produces one of the documented results.
 
-The absence of value `1` is intentional in this Draft mapping and creates no unspecified result category.
+The absence of value `1` is intentional in this mapping and creates no unspecified result category.
 
 ## Unsupported capability
 When an explicitly requested version or capability is unsupported or unavailable:
@@ -410,9 +410,9 @@ Usage or request parsing failure is `invalid request`. Failure to acquire requir
 Implementation exception names, stack traces, and arbitrary operating-system prose are not stable process identifiers.
 
 ## Compatibility
-No historical CLI or process compatibility classification is established by this Draft specification.
+No historical CLI or process compatibility classification is established by this specification.
 
-All obligations concerning the `dx.py` name, aliases, `unpack`, stdin conventions, numeric process values, option spelling, no-argument behavior, output defaults, stream usage, terminal behavior, and machine formats are deferred to future `docs/spec/compatibility.md`.
+Historical retention, migration, or removal obligations for the `dx.py` name, aliases, `unpack`, prior stdin conventions, prior numeric values, prior option spelling, prior defaults, prior stream usage, prior terminal behavior, and prior machine formats are unspecified. They do not alter the current process contract defined here.
 
 This specification defines intended current process semantics. It does not claim that historical behavior is retained, intentionally replaced, safely removed, or covered by migration.
 
@@ -421,38 +421,33 @@ None. This specification defines machine-mode semantics but no schema-governed s
 
 The decision to expose machine outcomes establishes a candidate producer and consumers for later schema evaluation. A future schema decision must identify the concrete validation boundary without moving semantic meaning out of prose.
 
-## Draft dependencies
-### Selection dependency
+## Accepted dependencies
+### Selection
 DEPENDENCY: `docs/spec/selection.md`
-CURRENT STATUS: Accepted
+STATUS: Accepted
 CONSUMED RULES: Candidate-source composition, scope, selectors, exclusions, override authority, explicit ignore and optional Git inputs, ordered ignore-source behavior, and invalid selection inputs.
-BLOCKS CLI/PROCESS ACCEPTANCE: NO
 
-### Operations dependency
+### Operations
 DEPENDENCY: `docs/spec/operations.md`
-CURRENT STATUS: Draft
-CONSUMED RULES: Semantic operation set, planning and mutation distinction, carrier-output sinks, complete delivery, inspection projections, comparison, application effects, result categories, changed preconditions, and partial failure.
-BLOCKS CLI/PROCESS ACCEPTANCE: YES
+STATUS: Accepted
+CONSUMED RULES: Semantic operation set, planning and mutation distinction, output sinks, complete delivery, inspection projections, comparison, application effects, result categories, changed preconditions, and partial failure.
 
-### Diagnostics dependency
+### Diagnostics
 DEPENDENCY: `docs/spec/diagnostics.md`
-CURRENT STATUS: Draft
+STATUS: Accepted
 CONSUMED RULES: Human/machine agreement, required diagnostic information, blocking status, stable symbolic findings, typed resource references, output-delivery classification, verbosity limits, uncertainty, and partial-failure reconstruction.
-BLOCKS CLI/PROCESS ACCEPTANCE: YES
 
-### Carrier dependency
+### Carrier format
 DEPENDENCY: `docs/spec/dx-carrier.md`
-CURRENT STATUS: Draft
-CONSUMED RULES: Carrier byte acquisition, supported and unsupported versions, structural validity, exact decoded entry bytes, and complete carrier-byte representation.
-BLOCKS CLI/PROCESS ACCEPTANCE: YES
+STATUS: Accepted
+CONSUMED RULES: Carrier-byte acquisition, supported and unsupported versions, structural validity, exact decoded entry bytes, and complete carrier-byte representation.
 
-### Workspace-path dependency
+### Workspace paths
 DEPENDENCY: `docs/spec/workspace-paths.md`
-CURRENT STATUS: Draft
-CONSUMED RULES: Explicit workspace roots, relative resource resolution, workspace applicability, unsupported environments, terminal-independent path meaning, and changed environmental preconditions.
-BLOCKS CLI/PROCESS ACCEPTANCE: YES
+STATUS: Accepted
+CONSUMED RULES: Explicit workspace roots, relative resource resolution, workspace applicability, unsupported environments, path meaning, and changed environmental preconditions.
 
-This specification does not promote any Draft dependency or resolve questions outside its process-boundary scope.
+Concrete machine structure is a separate schema concern. Historical compatibility classification is not required to determine current process conformance.
 
 ## Required verification
 Conformance evidence MUST cover the important rules below without making test implementation part of this specification.
@@ -578,9 +573,12 @@ Verification also demonstrates:
 - no rollback implication;
 - no portable DX numeric claim for unhandled environment-imposed termination.
 
+## Maturity transition
+This specification is Accepted because invocation, request grammar, streams, sink mapping, delivery failure, terminal safety, machine-mode behavior, projections, dry-run adaptation, verbosity, numeric results, environment resolution, interruption, validation, and verification are fully determined within scope. Machine object structure and historical migration classification are separate concerns and are not blockers.
+
 ## Authority boundary
 This document owns DX public invocation, command and option spelling, process request grammar, standard streams, terminal safety, machine-mode selection and purity, help and version behavior, environmental request resolution, and numeric process results.
 
-`docs/spec/selection.md` owns selected-set semantics and retained selection facts. `docs/spec/operations.md` owns operation meanings, carrier-output completion, effects, conflicts, and semantic result categories. `docs/spec/diagnostics.md` owns diagnostic identifiers, required context, warning and suggestion meaning, and human/machine semantic agreement. `docs/spec/dx-carrier.md` owns carrier representation. `docs/spec/workspace-paths.md` owns workspace mapping and applicability. Future schema authority owns machine-enforced structure. Future compatibility authority owns accepted historical relationships.
+`docs/spec/selection.md` owns selected-set semantics and retained selection facts. `docs/spec/operations.md` owns operation meanings, carrier-output completion, effects, conflicts, and semantic result categories. `docs/spec/diagnostics.md` owns diagnostic identifiers, required context, warning and suggestion meaning, and human/machine semantic agreement. `docs/spec/dx-carrier.md` owns carrier representation. `docs/spec/workspace-paths.md` owns workspace mapping and applicability. A separately admitted schema owns machine-enforced structure. Historical compatibility relationships remain unspecified until admitted by a compatibility authority.
 
 Architecture continues to own dependency direction, capability isolation, environmental boundaries, and the rule that presentation and process do not re-evaluate semantics.

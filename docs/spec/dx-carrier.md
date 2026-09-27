@@ -3,7 +3,7 @@
 Status: Normative
 Owner: DX v2 carrier format and preservation semantics
 Scope: DX v2.0.0 carrier framing, entries, attributes, payload representation, logical carrier paths, decoding, serialization, and structural verification
-Maturity: Draft
+Maturity: Accepted
 
 ## Purpose
 
@@ -290,9 +290,9 @@ Serialization depends only on complete explicit semantic inputs and this seriali
 
 ## Compatibility
 
-No historical compatibility classification is established by this Draft specification.
+No historical compatibility classification is established by this specification. Historical input and migration behavior are outside this accepted v2.0.0 format boundary and remain unspecified until separately classified.
 
-Existing parser and serializer behavior is implementation evidence. DX v1.3.1 handling, established workflow compatibility, and migration obligations require a future compatibility authority supported by historical evidence.
+Existing parser and serializer behavior is implementation evidence. This specification makes no compatibility commitment for DX v1.3.1 or established historical workflows.
 
 ## Applicable schemas
 
@@ -325,9 +325,8 @@ Conformance evidence MUST cover at least:
 
 Verification compares source and recovered bytes directly and records byte counts and SHA-256 values where applicable.
 
-## Open decisions
-
-The following remain outside the accepted v2.0.0 Draft boundary:
+## Bounded future work
+The following remain outside the accepted v2.0.0 boundary and do not affect conformance to it:
 
 - whether historical v1.3.1 input requires migration support;
 - whether a future format admits carrier-contained integrity metadata;
@@ -336,8 +335,12 @@ The following remain outside the accepted v2.0.0 Draft boundary:
 
 None of these questions changes conformance for the v2.0.0 rules stated above.
 
+## Maturity transition
+
+This specification is Accepted because its v2.0.0 framing, representation, preservation, validation, determinism, and verification boundary completely determine conformance. Historical migration, future extensions, future integrity mechanisms, and support claims for additional environments remain explicitly outside this boundary.
+
 ## Authority boundary
 
 This document owns DX v2.0.0 carrier representation and decoded-content semantics.
 
-`docs/spec/workspace-paths.md` owns whether a valid logical carrier path can be mapped safely to a particular workspace. Future selection specifications own which source content becomes carrier input. Future operation, diagnostic, CLI, and compatibility specifications own their respective observable behavior. Architecture continues to own responsibility and dependency boundaries.
+`docs/spec/workspace-paths.md` owns whether a valid logical carrier path can be mapped safely to a particular workspace. `docs/spec/selection.md` owns which source content becomes carrier input. `docs/spec/operations.md`, `docs/spec/diagnostics.md`, and `docs/spec/cli-process.md` own their respective observable behavior. Historical compatibility relationships remain unspecified until admitted by a compatibility authority. Architecture continues to own responsibility and dependency boundaries.
