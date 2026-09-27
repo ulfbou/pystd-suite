@@ -24,7 +24,7 @@ This specification governs:
 - internal-defect diagnostics;
 - human and machine semantic agreement;
 - verbosity, ordering, and diagnostic stability;
-- semantic information required by a future machine representation;
+- semantic information required by the admitted machine-validation boundary;
 - stream and process handoff categories.
 
 ### Out of scope
@@ -346,7 +346,7 @@ No historical diagnostic compatibility classification is established by this spe
 These observations do not create compatibility authority.
 
 ## Machine-readable semantic boundary
-This specification defines semantic information needed by a future machine representation, not a concrete serialization.
+This specification defines semantic information required by the machine-validation boundary governed by `docs/schema/README.md`, not a concrete serialization.
 
 Required semantic information includes:
 - diagnostic contract evolution context;
@@ -366,7 +366,7 @@ Optional explanatory information includes provenance, supporting matches, source
 
 Presentation-only information includes formatted text, colors, indentation, tables, glyphs, localized headings, terminal width, and display grouping.
 
-A future schema requires an accepted machine producer/consumer or validator boundary. This specification defines no JSON fields or schema.
+`docs/schema/README.md` admits the producer, consumer, and validator boundary. No concrete schema is active because machine serialization encoding remains unspecified. This specification defines no encoding, field names, or object shape.
 
 ## Stream and process handoff
 This specification forwards these semantic output classes to the CLI/process authority:
@@ -534,4 +534,4 @@ This document owns diagnostic interpretation of retained semantic results and fi
 
 `docs/spec/dx-carrier.md` owns carrier validity distinctions. `docs/spec/workspace-paths.md` owns workspace mapping and applicability distinctions. Both are Accepted.
 
-`docs/spec/cli-process.md` owns invocation, streams, terminal behavior, and process results. A separately admitted schema owns concrete machine representation. Historical migration commitments remain unspecified until admitted by a compatibility authority. Architecture continues to own dependency and presentation boundaries.
+`docs/spec/cli-process.md` owns invocation, streams, terminal behavior, and process results. `docs/schema/README.md` governs machine structure. A concrete schema owns representation structure only after its encoding and artifact are admitted. Historical migration commitments remain unspecified until admitted by a compatibility authority. Architecture continues to own dependency and presentation boundaries.

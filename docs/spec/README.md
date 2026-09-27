@@ -19,8 +19,8 @@ Concern ownership determines authority.
 - `docs/adr/` records consequential architectural decisions and their rationale.
 - This document owns specification governance.
 - Domain specifications own continuing observable behavior within their declared scopes.
-- A future `docs/schema/README.md` will govern schemas only when schema-governed interfaces exist.
-- A future `tests/fixtures/README.md` will govern fixture representation, not product semantics.
+- `docs/schema/README.md` governs the admitted DX machine structural-validation boundary. Concrete schemas own only structure for an accepted encoding.
+- `tests/fixtures/README.md` governs fixture representation and evidence classes, not product semantics.
 
 A specification must respect product and architecture authority. Product or architecture authority does not substitute for a behavioral specification.
 
@@ -204,7 +204,7 @@ Tests may serve distinct purposes:
 - compatibility-characterization tests record existing evidence before acceptance;
 - architecture tests protect dependency and capability invariants.
 
-These purposes must remain distinguishable. A compatibility-characterization test is not automatically a normative conformance test. Fixture organization and byte-comparison rules belong to the future `tests/fixtures/README.md`.
+These purposes must remain distinguishable. A compatibility-characterization test is not automatically a normative conformance test. Fixture organization and byte-comparison rules belong to `tests/fixtures/README.md`.
 
 ## Traceability
 

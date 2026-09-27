@@ -266,7 +266,7 @@ In machine mode:
 
 Machine mode consumes the semantic information required by the diagnostic authority, including primary result, satisfaction or completion meaning, stable symbolic findings, diagnostic kind and blocking status, typed resource references, decisive facts, differences, effects, uncertainty, partial-failure relationships, and required ordering.
 
-This specification defines machine-mode existence, eligibility, purity, and semantic agreement. It defines no field names, object shape, serialization encoding, or schema. Prose owns semantics. A future schema decision owns machine-enforced structure only after its producer, consumers, and validation boundary are admitted.
+This specification defines machine-mode existence, eligibility, purity, and semantic agreement. It defines no field names, object shape, serialization encoding, or schema. Prose owns semantics. `docs/schema/README.md` owns governance of the admitted producer, consumer, and validation boundary. No concrete schema is active until serialization encoding and an interoperable structure are Accepted.
 
 ## Inspection projections
 `inspect` supports these primary projections:
@@ -417,9 +417,7 @@ Historical retention, migration, or removal obligations for the `dx.py` name, al
 This specification defines intended current process semantics. It does not claim that historical behavior is retained, intentionally replaced, safely removed, or covered by migration.
 
 ## Applicable schemas
-None. This specification defines machine-mode semantics but no schema-governed structure.
-
-The decision to expose machine outcomes establishes a candidate producer and consumers for later schema evaluation. A future schema decision must identify the concrete validation boundary without moving semantic meaning out of prose.
+`docs/schema/README.md` governs the admitted machine structural-validation boundary. No concrete schema is active because this specification does not yet select a serialization encoding or object structure. Prose here and in the operations and diagnostics specifications continues to own semantics.
 
 ## Accepted dependencies
 ### Selection
@@ -579,6 +577,6 @@ This specification is Accepted because invocation, request grammar, streams, sin
 ## Authority boundary
 This document owns DX public invocation, command and option spelling, process request grammar, standard streams, terminal safety, machine-mode selection and purity, help and version behavior, environmental request resolution, and numeric process results.
 
-`docs/spec/selection.md` owns selected-set semantics and retained selection facts. `docs/spec/operations.md` owns operation meanings, carrier-output completion, effects, conflicts, and semantic result categories. `docs/spec/diagnostics.md` owns diagnostic identifiers, required context, warning and suggestion meaning, and human/machine semantic agreement. `docs/spec/dx-carrier.md` owns carrier representation. `docs/spec/workspace-paths.md` owns workspace mapping and applicability. A separately admitted schema owns machine-enforced structure. Historical compatibility relationships remain unspecified until admitted by a compatibility authority.
+`docs/spec/selection.md` owns selected-set semantics and retained selection facts. `docs/spec/operations.md` owns operation meanings, carrier-output completion, effects, conflicts, and semantic result categories. `docs/spec/diagnostics.md` owns diagnostic identifiers, required context, warning and suggestion meaning, and human/machine semantic agreement. `docs/spec/dx-carrier.md` owns carrier representation. `docs/spec/workspace-paths.md` owns workspace mapping and applicability. `docs/schema/README.md` governs machine-enforced structure. A concrete schema becomes authoritative only when its encoding and artifact are admitted. Historical compatibility relationships remain unspecified until admitted by a compatibility authority.
 
 Architecture continues to own dependency direction, capability isolation, environmental boundaries, and the rule that presentation and process do not re-evaluate semantics.
